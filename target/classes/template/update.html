@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title></title>
+    <meta content="">
+    <style></style>
+</head>
+<body>
+<label for="ID">Enter update ID</label>
+id: <input id="ID" name="id" value="">
+<br>
+<form id="myForm">
+
+    <label for="myName">Send me your name:</label>
+    <input id="myName" name="name" value="">
+    <br>
+    <label for="emailid">your email:</label>
+    <input id="emailid" name="email" value="">
+    <br>
+    <label for="address">your address:</label>
+    <input id="address" name="address" value="">
+    <br>
+    <label for="age">your age:</label>
+    <input id="age" name="age" value="">
+    <br>
+    <input id="putSubmit" type="submit" value="Update">
+</form>
+</body>
+<script>
+  const thisForm = document.getElementById('myForm');
+  const id =document.getElementById('id').value;
+thisForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const formData = new FormData(thisForm).entries()
+    const response = await fetch('http://localhost:8080/customer/'+id, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(formData))
+    });
+    const result = await response.json();
+    console.log(result)
+});
+  </script>
+</html>
