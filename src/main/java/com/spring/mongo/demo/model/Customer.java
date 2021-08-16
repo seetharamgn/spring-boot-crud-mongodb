@@ -22,7 +22,7 @@ public class Customer implements Serializable {
     private String name;
     private String email;
     private String address;
-    private int age;
+    private String phone;
 
 
     // Constructor, Getter and Setter

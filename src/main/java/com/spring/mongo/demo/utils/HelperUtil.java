@@ -17,7 +17,7 @@ public class HelperUtil {
 
     public static Supplier<List<Customer>> superHeroesSupplier = () ->
             Arrays.asList(
-                    Customer.builder().name("Wade").email("ramu@gmail.com").address("banglore").age(28).build()
+                    Customer.builder().name("Wade").email("ramu@gmail.com").address("banglore").phone("767676767676").build()
             );
 
 
